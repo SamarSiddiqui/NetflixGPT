@@ -4,12 +4,10 @@ import { checkValidator } from "../utils/formValidation";
 // import { getValue } from "@testing-library/user-event/dist/utils";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = ()=> {
-   const navigate = useNavigate()
    const [isSigned,setSigned] = useState(true)
    const [errorMessage,setErrorMessage] = useState(null)
    const dispatch = useDispatch() 
@@ -19,30 +17,29 @@ const Login = ()=> {
    
    const toggleSignUp = ()=> {
        setSigned(!isSigned)
-
+       
     }
     
-      const handleSubmitBtn = ()=> {   
-      const message =  checkValidator(email.current.value,password.current.value)
-      setErrorMessage(message) 
-      if(message) return
-
-      // Sign UP Logic
-      if(!isSigned) {
-     createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-     .then((userCredential) => {
+    const handleSubmitBtn = ()=> {   
+    const message =  checkValidator(email.current.value,password.current.value)
+    setErrorMessage(message) 
+    if(message) return
+    
+    // Sign UP Logic
+    if(!isSigned) {
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
         // Signed up 
-          const user = userCredential.user;
-          updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://images.unsplash.com/photo-1661077150377-26922fb352bc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmV0ZmxpeCUyMGxvZ298ZW58MHx8MHx8fDA%3D"
-          }).then(() => {
-            // Profile updated!
-            const {uid,email,displayName,photoURL}=auth.currentUser
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name.current.value, photoURL: "https://images.unsplash.com/photo-1661077150377-26922fb352bc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmV0ZmxpeCUyMGxvZ298ZW58MHx8MHx8fDA%3D"
+        }).then(() => {
+          // Profile updated!
+          const {uid,email,displayName,photoURL}= auth.currentUser
 
-            dispatch(addUser({
-              uid:uid,email:email, displayName:displayName,photoURL:photoURL
-            }))
-            navigate('/browse')
+          dispatch(addUser({
+          uid:uid,email:email, displayName:displayName,photoURL:photoURL
+          }))
           }).catch((error) => {
             // An error occurred
             // ...
@@ -62,7 +59,6 @@ const Login = ()=> {
         signInWithEmailAndPassword(auth,email.current.value, password.current.value)
   .then((userCredential) => {
     const user = userCredential.user;
-    navigate('/browse')
     console.log(user);
     
   })
