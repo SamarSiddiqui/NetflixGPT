@@ -6,6 +6,7 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfil
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { Netflix_Bg, User_Dp } from "../utils/constants";
 
 const Login = ()=> {
    const [isSigned,setSigned] = useState(true)
@@ -32,7 +33,7 @@ const Login = ()=> {
         // Signed up 
         const user = userCredential.user;
         updateProfile(user, {
-          displayName: name.current.value, photoURL: "https://images.unsplash.com/photo-1661077150377-26922fb352bc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmV0ZmxpeCUyMGxvZ298ZW58MHx8MHx8fDA%3D"
+          displayName: name.current.value, photoURL: User_Dp
         }).then(() => {
           // Profile updated!
           const {uid,email,displayName,photoURL}= auth.currentUser
@@ -59,7 +60,6 @@ const Login = ()=> {
         signInWithEmailAndPassword(auth,email.current.value, password.current.value)
   .then((userCredential) => {
     const user = userCredential.user;
-    console.log(user);
     
   })
   .catch((error) => {
@@ -84,7 +84,7 @@ return (
        <Header/>
 
    <div className="absolute bgLogo">
-       <img alt="bg-logo"  src="https://assets.nflxext.com/ffe/siteui/vlv3/81d64f3c-9627-4741-8f74-422bf35f9f1d/web/IN-en-20241104-TRIFECTA-perspective_55263ea2-af7f-40ed-9cf0-7029a9b9baf4_large.jpg"/>
+       <img alt="bg-logo"  src={Netflix_Bg}/>
    </div>
      
   <div className=" absolute flex justify-center my-20 mx-auto right-0  left-0  ">
