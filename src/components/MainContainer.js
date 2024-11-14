@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import VideoContainer from './VideoTitle'
 import VideoTitle from './VideoTitle'
 import VideoBg from './VideoBg'
 
@@ -11,10 +10,12 @@ const MainContainer = () => {
 //    It can be written as below
 //    if(movies===null) return
 
-  const movie = movies[4]
+//  console.log(movies);
+ 
+  const movie = movies[2]
   
   return (
-    <div>
+    <div className=''>
       <VideoTitle props={movie}/>
       <VideoBg movieID={movie?.id}/>
        Hello From Main Container.
