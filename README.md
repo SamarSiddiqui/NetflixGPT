@@ -28,6 +28,9 @@
 - Fetched Data for Trailer Movies
 - Update Store with traier Video data
 - Embedded the Youtube video and make it autoplay and mute
+- Build Secondary Component
+- Build Movie List and Movie Cards
+- Made lots of custom hooks for fetching film categories
 
 
 

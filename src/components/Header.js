@@ -47,9 +47,20 @@ const Header = () => {
     
     <div className="flex justify-between absolute z-20   bg-gradient-to-b from-black w-full">
     
-    <img className="w-36"   alt="logo"  src={Netflix_Logo}/>
-
+    <div className=" flex text-white ">
+    <img className="w-36 "   alt="logo"  src={Netflix_Logo}/>
+       <ul className="flex items-center">
+        <li className="pl-5 px-4 font-bold">Home</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">Tv Shows</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">Moives</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">Trending</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">My List</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">My List</li>
+        <li className="pl-5 px-4 text-gray-300 font-bold">Must Watch</li>
+       </ul>
+      </div>
     { user && <div className="flex">
+      
       <img className="w-10" src={user?.photoURL} alt="uerphoto"/>
     <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>            
      </div>}

@@ -15,7 +15,7 @@ const MainContainer = () => {
   const movie = movies[2]
   
   return (
-    <div className=''>
+    <div className='relative -top-28 '>
       <VideoTitle props={movie}/>
       <VideoBg movieID={movie?.id}/>
        Hello From Main Container.
