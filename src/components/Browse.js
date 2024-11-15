@@ -5,12 +5,17 @@ import MainContainer from './MainContainer'
 import SecondaryContainer from './SecondaryContainer'
 import usePopularMovies from '../hooks/usePopularMovies'
 import useUpcomingMovies from '../hooks/useUpcomingMovies'
+import useSeries from '../hooks/useSeries'
+import useTopRatedMovies from '../hooks/usetopRated'
+
 const Browse = () => {
 
   useNowPlayingMovies()
   usePopularMovies()
   useUpcomingMovies()
-  
+  useSeries()
+  useTopRatedMovies()
+
   return (
     <div className=''>
       <Header />
@@ -18,8 +23,6 @@ const Browse = () => {
       <SecondaryContainer />
     </div>
   )
-
-  
 }
 
 export default Browse

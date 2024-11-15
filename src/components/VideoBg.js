@@ -14,7 +14,8 @@ const VideoBg = ({movieID}) => {
 return (
    <div className='relative max-w-full'>
      <iframe className='w-full aspect-video' 
-     src={"https://www.youtube.com/embed/"+ trailerKey+"?autoplay=1&mute=1&si=gUHwXCkjOytcxH4R&amp;controls=0&amp;start=10"}
+     src={"https://www.youtube.com/embed/"+ trailerKey+"?&mute=1&si=gUHwXCkjOytcxH4R&amp;controls=0&amp;start=10"}
+   //   {just add autoplay=1 after ?}
       title="YouTube video player"  
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
      </div>
