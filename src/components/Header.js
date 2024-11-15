@@ -4,13 +4,15 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
-import { Netflix_Logo } from "../utils/constants";
+import { Netflix_Logo, Supported_Lang } from "../utils/constants";
+import { toggleGptComponent } from "../utils/gptSlice";
+
 
 const Header = () => {
   const user = useSelector((store)=>store?.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+   
   useEffect(()=>{
     // This function is checking authentication kindOff EventListner. If a user is signed in then the store is getting updated.
    const unsbscribe =  onAuthStateChanged(auth, (user) => {
@@ -32,6 +34,7 @@ const Header = () => {
   
   },[])
 
+
  // const dispatch = useDispatch()
   const handleSignOut = ()=>{
  signOut(auth).then(() => {
@@ -42,6 +45,10 @@ const Header = () => {
   // An error happened.
 });
 }
+
+ let handleGptToggle = ()=> {
+  dispatch(toggleGptComponent())
+ }
 
   return (
     
@@ -59,8 +66,18 @@ const Header = () => {
         <li className="pl-5 px-4 text-gray-300 font-bold">Must Watch</li>
        </ul>
       </div>
-    { user && <div className="flex">
+    { user && <div className="flex items-center justify-center">
+        <select name="english" className="bg-gray-300 p-2 rounded-md">
+          {/* <option value="en">English</option>
+          <option value="hindi">Hindi</option>
+          <option value="urdu">Urdu</option> */}
+          {
+            Supported_Lang.map((eachLang)=><option key={eachLang.identifier} value={eachLang.identifier}>{eachLang.name}</option>
+            )
+          }
+        </select>
       
+      <button className="bg-fuchsia-600 m-2 p-2 rounded-md" onClick={handleGptToggle}>Explore Gpt</button>
       <img className="w-10" src={user?.photoURL} alt="uerphoto"/>
     <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>            
      </div>}

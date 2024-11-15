@@ -10,7 +10,6 @@ const MainContainer = () => {
 //    It can be written as below
 //    if(movies===null) return
 
-//  console.log(movies);
  
   const movie = movies[2]
   

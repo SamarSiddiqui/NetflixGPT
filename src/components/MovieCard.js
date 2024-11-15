@@ -2,9 +2,7 @@ import React from 'react'
 import { IMG_CDN } from '../utils/constants';
 
 const MovieCard = (backdrop_path) => {
-    // if(movies.lenght===null) return
-    // let ImgPath = movies
-    // console.log(backdrop_path?.posterPath);
+   
 
   return (
     <div className=''>

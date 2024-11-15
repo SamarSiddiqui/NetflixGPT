@@ -1,7 +1,6 @@
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidator } from "../utils/formValidation";
-// import { getValue } from "@testing-library/user-event/dist/utils";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
@@ -26,7 +25,7 @@ const Login = ()=> {
     setErrorMessage(message) 
     if(message) return
     
-    // Sign UP Logic
+    // Sign Up Logic
     if(!isSigned) {
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
