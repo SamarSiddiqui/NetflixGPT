@@ -6,10 +6,15 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { Netflix_Logo, Supported_Lang } from "../utils/constants";
 import { toggleGptComponent } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configlangSlice";
+import GptSearch from "./GptSearch";
 
 
 const Header = () => {
   const user = useSelector((store)=>store?.user)
+  const showLangOptions = useSelector((store)=>store?.gpt?.toggleGpt)
+  // console.log(toggleGpt);
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
    
@@ -50,6 +55,12 @@ const Header = () => {
   dispatch(toggleGptComponent())
  }
 
+ let handleLangchange = (e)=> {
+ dispatch(changeLanguage(e.target.value))
+ }
+
+
+
   return (
     
     <div className="flex justify-between absolute z-20   bg-gradient-to-b from-black w-full">
@@ -67,17 +78,22 @@ const Header = () => {
        </ul>
       </div>
     { user && <div className="flex items-center justify-center">
-        <select name="english" className="bg-gray-300 p-2 rounded-md">
+       { showLangOptions&& 
+          
+        <select onChange={handleLangchange}  name="english" className="bg-gray-300 p-2 rounded-md">
           {/* <option value="en">English</option>
           <option value="hindi">Hindi</option>
           <option value="urdu">Urdu</option> */}
-          {
+          { 
             Supported_Lang.map((eachLang)=><option key={eachLang.identifier} value={eachLang.identifier}>{eachLang.name}</option>
             )
           }
+
         </select>
+       }
+
+       <button className="bg-fuchsia-600 m-2 p-2 rounded-md" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}</button>
       
-      <button className="bg-fuchsia-600 m-2 p-2 rounded-md" onClick={handleGptToggle}>Explore Gpt</button>
       <img className="w-10" src={user?.photoURL} alt="uerphoto"/>
     <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>            
      </div>}
