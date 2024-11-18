@@ -23,5 +23,5 @@ export const API_Options =  {
 
 
 
-  export const Gemini_Key = "AIzaSyAFzBlUdTlQtTtG46dRBq6zaFJuJuBHHMU"
+
   
