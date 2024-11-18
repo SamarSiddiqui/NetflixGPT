@@ -1,21 +1,51 @@
-import React from 'react'
-import { Netflix_Bg } from '../utils/constants'
+import React, { useRef } from 'react'
 import lang from '../utils/language'
 import { useSelector } from 'react-redux'
+import { GoogleGenerativeAI } from '@google/generative-ai'
+import axios from 'axios';
+// const {GoogleGenerativeAI} = require('@google/generative-ai')
+// import { useRef } from 'react'
+
+// console.log(process.env.REACT_APP_API_KEY);
+
 const GptSearchBar = () => {
   const langKey = useSelector((store)=>store.lang.lang)
- 
+  
+  const inputValue = useRef(null)
+
+  const gptQuery = `Act as a movie recommendation system and suggest some movies for the query: ${inputValue?.current?.value}.Only give me the names of 5 movies, comma separated like the example result given ahead. Example Result: Koi Mil Gaya, Don, Sholay, Endgame, Whiplash`;
+
+   const handleGPTSearchClick = async () => {
+  
+    console.log("Loading");
+    
+    const response = await axios({
+    url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyD2LJCkLBXJr6RdqjH9FKK_NHq761nhyh8",
+    method: "post",
+    data: {
+    contents:[{parts:[{text:gptQuery}]}]
+    }})
+
+    //  console.log(response?.data?.candidates[0]?.content?.parts[0]?.text);
+
+    const movieList = response?.data?.candidates[0]?.content?.parts[0].text.split(',')
+    
+    console.log(movieList);
+     
+    
+}
     
   return (
     <div className='p-[10%] border '>
         
-        <form className='  bg-black grid grid-cols-12 justify-center items-center'>
+        <form className='  bg-black grid grid-cols-12 justify-center items-center' onSubmit={(e)=>e.preventDefault()} >
         <input
+        ref={inputValue}
         type='text'
         className='col-span-9 p-4 m-4 text-black cols-span-9 rounded-lg'
         placeholder= {lang[langKey].input}
         />
-        <button className='col-span-3 mr-3 py-4 px-4 bg-red-700 text-white rounded-lg'>{lang[langKey].search}</button>
+        <button onClick={handleGPTSearchClick}  className='col-span-3 mr-3 py-4 px-4 bg-red-700 text-white rounded-lg'>{lang[langKey].search}</button>
         </form>
       
     </div>

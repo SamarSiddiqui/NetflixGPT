@@ -20,3 +20,8 @@ export const API_Options =  {
     {identifier:"hindi", name:"Hindi"},
     {identifier:"urdu", name:"Urdu"}
   ]
+
+  export const OpenAI_Key = "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"
+
+  export const Gemini_Key = "AIzaSyAFzBlUdTlQtTtG46dRBq6zaFJuJuBHHMU"
+  
