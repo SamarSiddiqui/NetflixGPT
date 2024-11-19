@@ -10,9 +10,10 @@ export const API_Options =  {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjFmNGZiN2M1YzVhOTQ0YWYwMTYyZjEzZGVjMTdjZSIsIm5iZiI6MTczMTM5MzM0OC4xMDY2ODcsInN1YiI6IjY3MzJmNTUxN2VmMmMzMWQ3OGVkZDViYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.02Zs1Qf5vBH-g3zl0guVXjce8WVOFTBsH26GetEW8D8'
+      Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}` 
     }
   };
+
 
  
  export const Supported_Lang = [
@@ -21,7 +22,5 @@ export const API_Options =  {
     {identifier:"urdu", name:"Urdu"}
   ]
 
-
-
-
+export const Gemini_Key = process.env.REACT_APP_GEMINI_KEY
   

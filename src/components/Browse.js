@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 
 const Browse = () => {
   const state = useSelector((store)=> store?.gpt?.toggleGpt)
-
+  console.log(process.env.REACT_APP_GEMINI_KEY);
   
   useNowPlayingMovies()
   usePopularMovies()
