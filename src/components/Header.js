@@ -3,17 +3,19 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Netflix_Logo, Supported_Lang } from "../utils/constants";
 import { toggleGptComponent } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configlangSlice";
-import GptSearch from "./GptSearch";
+import DropDown from "./DropDown";
 
 
 const Header = () => {
+  const [scrolled,setScrolled]= useState(false)
+  const [toggleIcon,setToggleIcon] = useState('fa-solid fa-caret-down')
   const user = useSelector((store)=>store?.user)
+
   const showLangOptions = useSelector((store)=>store?.gpt?.toggleGpt)
-  // console.log(toggleGpt);
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -41,15 +43,7 @@ const Header = () => {
 
 
  // const dispatch = useDispatch()
-  const handleSignOut = ()=>{
- signOut(auth).then(() => {
-  // Sign-out successful.
-  dispatch(removeUser())
-  navigate('/')
-}).catch((error) => {
-  // An error happened.
-});
-}
+
 
  let handleGptToggle = ()=> {
   dispatch(toggleGptComponent())
@@ -59,47 +53,87 @@ const Header = () => {
  dispatch(changeLanguage(e.target.value))
  }
 
+ 
+ useEffect(()=>{
+  const handleHeaderScroll = ()=> {
+    setScrolled(window.scrollY>100)
+  }
 
+  window.addEventListener("scroll",handleHeaderScroll)
+
+  return ()=> window.removeEventListener('scroll',handleHeaderScroll)
+ },[])
+
+  const handleIconToggle = ()=> {
+    setToggleIcon((prevIcon)=>
+      prevIcon === "fa-solid fa-caret-down"
+      ? "fa-solid fa-caret-up"
+      : "fa-solid fa-caret-down"
+    )
+
+   
+    
+  }
 
   return (
     
-    <div className="flex justify-between absolute z-20   bg-gradient-to-b from-black w-full">
-    
+    <div className={`flex justify-between fixed z-50   bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-transparent"}` }>
+     
     <div className=" flex text-white ">
-    <img className="w-36 "   alt="logo"  src={Netflix_Logo}/>
+    <img className="w-36 ml-10 "   alt="logo"  src={Netflix_Logo}/>
        <ul className="flex items-center">
-        <li className="pl-5 px-4 font-bold">Home</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">Tv Shows</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">Moives</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">Trending</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">My List</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">My List</li>
-        <li className="pl-5 px-4 text-gray-300 font-bold">Must Watch</li>
+        <li className="pl-5 px-4 font-light text-sm cursor-pointer ">Home</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Tv Shows</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Moives</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Trending</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">My List</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">My List</li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Must Watch</li>
        </ul>
       </div>
     { user && <div className="flex items-center justify-center">
        { showLangOptions&& 
           
         <select onChange={handleLangchange}  name="english" className="bg-gray-300 p-2 rounded-md">
-          {/* <option value="en">English</option>
-          <option value="hindi">Hindi</option>
-          <option value="urdu">Urdu</option> */}
+          
           { 
             Supported_Lang.map((eachLang)=><option key={eachLang.identifier} value={eachLang.identifier}>{eachLang.name}</option>
             )
           }
-
-        </select>
+       </select>
        }
+     
+     </div>} 
 
-       <button className="bg-fuchsia-600 m-2 p-2 rounded-md" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}</button>
+        <div className="flex items-center justify-evenly  w-60 mx-10">
+        <button className="animate-pulse-glow relative px-2 py-2  font-medium text-gray-300 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:shadow-gray-600/40 hover:scale-105 before:absolute before:inset-0 before:bg-gray-900 before:blur-md before:opacity-0 hover:before:opacity-10 before:rounded-lg hover:text-yellow-400" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}
+        <i class="fa-solid fa-wand-magic-sparkles pl-2"></i></button>
+      <div className=" flex justify-center items-center ">
       
-      <img className="w-10" src={user?.photoURL} alt="uerphoto"/>
-    <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>            
-     </div>}
+      <img className="w-12 rounded-lg" src={user?.photoURL} alt="uerphoto"/>
+    {/* <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>   */}
+     
+    <i className={`${toggleIcon} text-gray-300 cursor-pointer mx-2`} onClick={handleIconToggle}></i> 
+      </div>
+    {/*DropDown */}
+    {toggleIcon === "fa-solid fa-caret-up" && 
+    //  <div className='w-8 p-1 border border-red-950 bg-fuchsia-800 absolute'>
+    // <ul className="p-2">
+    //   <li>Account</li>
+    //   <li>Help</li>
+    //   <li>SignOut</li>
+    // </ul>
+    // </div>
+    <DropDown/>
+}
+        </div>
+       
+
+
 
     </div>
  )
 }
 
 export default Header;
+
