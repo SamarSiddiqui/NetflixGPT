@@ -22,7 +22,7 @@ const DropDown = () => {
   return (
     <div className=' px-6 pb-8 pt-4   bg-black text-gray-300 absolute top-16 opacity-80 right-10 '>
         <h2>Hey, {userName}</h2>
-        <h3 className='border-b-2 pb-5'>Manage Profiles</h3>
+        <h3 className='border-b-[1px] pb-5'>Manage Profiles</h3>
      <ul className="pt-2  text-base">
        <li className=''>Account</li>
        <li className='pt-1'>Help Center</li>

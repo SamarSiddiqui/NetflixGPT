@@ -4,7 +4,7 @@ const VideoTitle = ({props}) => {
     let {original_title,overview} = props
     
   return (
-    <div className=' aspect-video pt-[27%] top-0 z-10 px-20 absolute text-white  bg-gradient-to-r from-black '>
+    <div className=' aspect-video pt-[27%] top-0 z-40 px-20 absolute text-white bg-gradient-to-r from-black '>
       
 
       <h1 className='font-extrabold text-4xl'>{original_title}</h1>

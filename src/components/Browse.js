@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from './Header'
 import useNowPlayingMovies from '../hooks/useNowPalyingMovies'
 import MainContainer from './MainContainer'
@@ -9,6 +9,7 @@ import useSeries from '../hooks/useSeries'
 import useTopRatedMovies from '../hooks/usetopRated'
 import GptSearch from './GptSearch.js'
 import { useSelector } from 'react-redux'
+import Footer from './Footer.js'
 
 const Browse = () => {
   const state = useSelector((store)=> store?.gpt?.toggleGpt)
@@ -28,6 +29,7 @@ const Browse = () => {
         <>
         <MainContainer />
         <SecondaryContainer />
+        <Footer/>
         
         </>
       }

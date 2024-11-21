@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,7 +56,7 @@ const Header = () => {
  
  useEffect(()=>{
   const handleHeaderScroll = ()=> {
-    setScrolled(window.scrollY>100)
+    setScrolled(window.scrollY>50)
   }
 
   window.addEventListener("scroll",handleHeaderScroll)
@@ -70,14 +70,11 @@ const Header = () => {
       ? "fa-solid fa-caret-up"
       : "fa-solid fa-caret-down"
     )
-
-   
-    
-  }
+}
 
   return (
     
-    <div className={`flex justify-between fixed z-50   bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-transparent"}` }>
+    <div className={` flex justify-between fixed top-0 z-50 bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-black opacity-70"}` }>
      
     <div className=" flex text-white ">
     <img className="w-36 ml-10 "   alt="logo"  src={Netflix_Logo}/>
@@ -92,7 +89,7 @@ const Header = () => {
        </ul>
       </div>
     { user && <div className="flex items-center justify-center">
-       { showLangOptions&& 
+       { showLangOptions && 
           
         <select onChange={handleLangchange}  name="english" className="bg-gray-300 p-2 rounded-md">
           
@@ -104,31 +101,25 @@ const Header = () => {
        }
      
      </div>} 
-
+    
         <div className="flex items-center justify-evenly  w-60 mx-10">
         <button className="animate-pulse-glow relative px-2 py-2  font-medium text-gray-300 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:shadow-gray-600/40 hover:scale-105 before:absolute before:inset-0 before:bg-gray-900 before:blur-md before:opacity-0 hover:before:opacity-10 before:rounded-lg hover:text-yellow-400" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}
-        <i class="fa-solid fa-wand-magic-sparkles pl-2"></i></button>
+        <i className="fa-solid fa-wand-magic-sparkles pl-2"></i></button>
       <div className=" flex justify-center items-center ">
       
-      <img className="w-12 rounded-lg" src={user?.photoURL} alt="uerphoto"/>
+      <img className="w-10 rounded-lg" src={user?.photoURL} alt="uerphoto"/>
     {/* <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>   */}
      
-    <i className={`${toggleIcon} text-gray-300 cursor-pointer mx-2`} onClick={handleIconToggle}></i> 
-      </div>
+    <i className={`${toggleIcon} text-gray-300 cursor-pointer mx-2 hover:text-white`} onClick={handleIconToggle}></i>
+
+    </div> 
     {/*DropDown */}
     {toggleIcon === "fa-solid fa-caret-up" && 
-    //  <div className='w-8 p-1 border border-red-950 bg-fuchsia-800 absolute'>
-    // <ul className="p-2">
-    //   <li>Account</li>
-    //   <li>Help</li>
-    //   <li>SignOut</li>
-    // </ul>
-    // </div>
     <DropDown/>
 }
-        </div>
+    </div>
        
-
+          
 
 
     </div>
