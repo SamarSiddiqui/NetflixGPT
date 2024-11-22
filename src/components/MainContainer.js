@@ -10,8 +10,11 @@ const MainContainer = () => {
 //    It can be written as below
 //    if(movies===null) return
 
+  const randomMovies =Math.floor( Math.random()*20
+ )
  
-  const movie = movies[2]
+ 
+  const movie = movies[randomMovies]
   
   return (
     <div className='relative -top-28'>

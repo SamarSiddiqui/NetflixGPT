@@ -8,6 +8,7 @@ import { Netflix_Logo, Supported_Lang } from "../utils/constants";
 import { toggleGptComponent } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configlangSlice";
 import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -79,13 +80,19 @@ const Header = () => {
     <div className=" flex text-white ">
     <img className="w-36 ml-10 "   alt="logo"  src={Netflix_Logo}/>
        <ul className="flex items-center">
-        <li className="pl-5 px-4 font-light text-sm cursor-pointer ">Home</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Tv Shows</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Moives</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Trending</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">My List</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">My List</li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">Must Watch</li>
+        <li className="pl-5 px-4 font-light text-sm cursor-pointer ">
+        <Link to={'/browse'}>Home</Link>
+        </li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">
+          <Link to={'/tvSeries'}>Tv Series</Link>
+        </li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">
+        <Link to={'/moives'}>Moives</Link>
+        </li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/trending'}>Trending</Link></li>
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/myList'}>My List</Link></li>
+       
+        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/mustWatch'}>Must Watch</Link></li>
        </ul>
       </div>
     { user && <div className="flex items-center justify-center">
