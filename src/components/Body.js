@@ -3,6 +3,7 @@ import Login from './Login'
 import Browse from './Browse'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import TvSeries from './TvSeries'
+import Movies from './Movies'
 
 
 const Body = () => {
@@ -19,6 +20,10 @@ const Body = () => {
           path: "/tvSeries",
           element: <TvSeries/>
         },
+        {
+          path:"/moives",
+          element:<Movies/>
+        }
     ],{
       future: {
          v7_startTransition: true,

@@ -29,7 +29,10 @@ const Header = () => {
         const {uid,email,displayName,photoURL} = user;
         dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
         // ...
-        navigate('/browse')
+        // navigate('/browse')
+        if (window.location.pathname === '/') {
+          navigate('/browse'); // Only redirect if on root path
+      }
       } else {
         // User is signed out
         dispatch(removeUser())

@@ -1,24 +1,24 @@
 import React from 'react'
 import { IMG_CDN } from '../utils/constants';
 
-const BannerImage = ({details}) => {
+const BannerImage = (backdrop_path) => {
   
-  let randomImages = Math.floor(Math.random()*20)
-    let backdrop_path = details[randomImages]?.backdrop_path
+ 
     
   return (
-    <div>
+    <div className='relative w-screen'>
       
-    <div className="relative w-72 cursor-pointer">
-      <img
-        className="object-cover rounded-sm"
-        src={IMG_CDN + backdrop_path}
+    <div className=" ">
+    <div className='absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent'></div>
+      <img  
+        className=" w-screen  object-cover"
+        src={IMG_CDN + backdrop_path.details}
         alt="moviesImg"
       />
       
     </div>
       
-      hello from Banner IMage
+      
     </div>
   )
 }
