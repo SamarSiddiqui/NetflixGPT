@@ -5,7 +5,7 @@ import { tvSeries } from "../utils/movieSlice"
 
 const useSeries =  ()=> {
     const dispatch = useDispatch()
-    const nowTvSeries = useSelector((store)=>store?.movies?.tvseries)
+    const nowTvSeries = useSelector((store)=>store?.movies?.tvSeries)
 
     
     const getSeries = async ()=> {

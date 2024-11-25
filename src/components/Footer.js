@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,6 +15,7 @@ const Footer = () => {
         <div className=''>
           <h2 className='whitespace-nowrap font-semibold pr-10'>Free Netflix</h2>
           <ul className=''>
+            
             <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Home</li>
             <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Movies</li>
             <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Web Series</li>

@@ -1,29 +1,61 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Login from './Login'
 import Browse from './Browse'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
-import TvSeries from './TvSeries'
-import Movies from './Movies'
+// import TvSeries from './TvSeries'
+// import Movies from './Movies'
+// import Trending from './Trending'
+import Error from './Error'
+import Shimmer from './Shimmer'
+import GptSearch from './GptSearch'
+const Trending = lazy(()=>import("./Trending"))
+const Movies = lazy(()=>import("./Movies"))
+const TvSeries = lazy(()=>import("./TvSeries"))
 
 
 const Body = () => {
     const appRouter = createBrowserRouter([
-        {
+        
+     { 
+      
+      children: [ {
             path: "/",
             element: <Login/>
         },
         {
             path:"/browse",
-            element:<Browse/>
+            element: <Suspense fallback={<Shimmer/>}>
+            <Browse/>
+          </Suspense>
+           
         },
         {
           path: "/tvSeries",
-          element: <TvSeries/>
+          element: <Suspense fallback={<Shimmer/>}>
+            <TvSeries/>
+          </Suspense>
         },
         {
           path:"/moives",
-          element:<Movies/>
+          element:<Suspense fallback={<Shimmer/>}>
+            <Movies/>
+          </Suspense>
+        },
+        {
+          path:"/trending",
+          element: <Suspense fallback={<div>loading from lazy..</div>}>
+            <Trending/>
+          </Suspense>
+        },
+        {
+          path:'/gptsearch',
+          element: <GptSearch/>
         }
+      
+      ],
+      errorElement:<Error/>
+      
+      }
     ],{
       future: {
          v7_startTransition: true,

@@ -1,11 +1,7 @@
 import React from 'react'
 import BannerImage from './BannerImage'
 import BannerDetails from './BannerDetails'
-import MovieList from './MovieList'
-import { useSelector } from 'react-redux'
-import Footer from './Footer'
-import Header from './Header'
-import useAiringToday from '../seriesHooks/useAiringToday'
+
 
 
 const Banner = ({details}) => {

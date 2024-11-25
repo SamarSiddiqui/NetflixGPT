@@ -14,6 +14,7 @@ const BannerImage = (backdrop_path) => {
         className=" w-screen  object-cover"
         src={IMG_CDN + backdrop_path.details}
         alt="moviesImg"
+          
       />
       
     </div>

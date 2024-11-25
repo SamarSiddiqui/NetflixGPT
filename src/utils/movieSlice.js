@@ -3,15 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieSlice = createSlice({
     name: "movies",
     initialState: {
+      trailerVideo: null,
+      nowTrendingAll:null,
+      nowReleasedTodayMovies:null,
         nowPlayingMovies: null,
-        trailerVideo: null,
         nowPopularMovies:null,
         nowUpcomingMovies:null,
-        tvSeries:null,
         topRatedMovies:null,
-        onTheAirSeries:null
+        tvSeries:null,
+        nowPopularSeries:null,
+        nowAiringTodaySeries:null,
+        nowOnTheAirSeries:null,
+        nowReleasedTodaySeries:null,
+        
     },
     reducers: {
+      nowTrendingAll:(state,action)=>{
+        state.nowTrendingAll = action.payload
+      },
+      nowReleasedTodayMovies: (state,action)=> {
+          state.nowReleasedTodayMovies = action.payload
+      },
       addNowPlayingMovies: (state,action)=> {
           state.nowPlayingMovies = action.payload
       },
@@ -30,13 +42,22 @@ const movieSlice = createSlice({
       topRatedMovies: (state,action)=> {
        state.topRatedMovies = action.payload
       },
-      seriesOnAir:(state,action)=> {
-        state.onTheAirSeries = action.payload
-      }
+      nowOnAirSeries:(state,action)=> {
+        state.nowOnTheAirSeries = action.payload
+      },
+      nowAiringTodaySeries:(state,action)=> {
+        state.nowAiringTodaySeries = action.payload
+       },
+       nowReleasedTodaySeries:(state,action)=>{
+        state.nowReleasedTodaySeries = action.payload
+       },
+       nowPopularSeries:(state,action)=> {
+        state.nowPopularSeries = action.payload
+       }
       
 
     }
 })
 
-export const {addNowPlayingMovies,trailerVideo,nowPopularMovies,nowUpcomingMovies,tvSeries,topRatedMovies,seriesOnAir} = movieSlice.actions
+export const {nowTrendingAll,nowReleasedTodayMovies,addNowPlayingMovies,trailerVideo,nowPopularMovies,nowUpcomingMovies,tvSeries,topRatedMovies,nowOnAirSeries,nowAiringTodaySeries,nowReleasedTodaySeries,nowPopularSeries} = movieSlice.actions
 export default movieSlice.reducer

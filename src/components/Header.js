@@ -8,7 +8,7 @@ import { Netflix_Logo, Supported_Lang } from "../utils/constants";
 import { toggleGptComponent } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configlangSlice";
 import DropDown from "./DropDown";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const Header = () => {
@@ -78,26 +78,27 @@ const Header = () => {
 
   return (
     
-    <div className={` flex justify-between fixed top-0 z-50 bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-black opacity-70"}` }>
+    <div className={` flex justify-between fixed top-0 z-[999] bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-black opacity-70"}` }>
      
     <div className=" flex text-white ">
     <img className="w-36 ml-10 "   alt="logo"  src={Netflix_Logo}/>
        <ul className="flex items-center">
-        <li className="pl-5 px-4 font-light text-sm cursor-pointer ">
-        <Link to={'/browse'}>Home</Link>
+        <li className="pl-5 px-4 font-light text-sm cursor-pointer text-gray-300 ">
+        <NavLink to={'/browse'} >Home</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">
-          <Link to={'/tvSeries'}>Tv Series</Link>
+        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white">
+          <NavLink to={'/tvSeries'}>Tv Series</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white">
-        <Link to={'/moives'}>Moives</Link>
+        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white">
+        <NavLink to={'/moives'}>Movies</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/trending'}>Trending</Link></li>
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/myList'}>My List</Link></li>
+        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/trending'}>Trending</NavLink></li>
+        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/myList'}>My List</NavLink></li>
        
-        <li className="pl-5 px-4 text-gray-300 font-light text-sm cursor-pointer hover:text-white"><Link to={'/mustWatch'}>Must Watch</Link></li>
+        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/gptsearch'}>Gpt Search<i className="fa-solid fa-wand-magic-sparkles pl-2"></i></NavLink></li>
        </ul>
       </div>
+      
     { user && <div className="flex items-center justify-center">
        { showLangOptions && 
           
@@ -112,10 +113,10 @@ const Header = () => {
      
      </div>} 
     
-        <div className="flex items-center justify-evenly  w-60 mx-10">
-        <button className="animate-pulse-glow relative px-2 py-2  font-medium text-gray-300 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:shadow-gray-600/40 hover:scale-105 before:absolute before:inset-0 before:bg-gray-900 before:blur-md before:opacity-0 hover:before:opacity-10 before:rounded-lg hover:text-yellow-400" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}
-        <i className="fa-solid fa-wand-magic-sparkles pl-2"></i></button>
-      <div className=" flex justify-center items-center ">
+        <div className="  flex justify-end w-60 mx-10">
+        {/* <button className="animate-pulse-glow relative px-2 py-2  font-medium text-gray-300 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:shadow-gray-600/40 hover:scale-105 before:absolute before:inset-0 before:bg-gray-900 before:blur-md before:opacity-0 hover:before:opacity-10 before:rounded-lg hover:text-yellow-400" onClick={handleGptToggle}>{showLangOptions?"HomePage":"Gpt Search"}
+        <i className="fa-solid fa-wand-magic-sparkles pl-2"></i></button> */}
+      <div className=" flex justify-end items-center ">
       
       <img className="w-10 rounded-lg" src={user?.photoURL} alt="uerphoto"/>
     {/* <button onClick={handleSignOut} className="bg-red-700 mx-2 p-2 ">Sign Out</button>   */}

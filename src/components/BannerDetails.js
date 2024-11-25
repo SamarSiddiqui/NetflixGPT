@@ -2,7 +2,7 @@ import React from 'react'
 
 const BannerDetails = (seriesDetails) => {
 
-  let {name,overview,vote_average,first_air_date,original_title,release_date} = seriesDetails?.details
+  let {name,overview,vote_average,first_air_date,original_title,release_date,media_type} = seriesDetails?.details
   
   return (
     <div className='absolute top-44  left-16 w-1/2  '>
@@ -18,6 +18,7 @@ const BannerDetails = (seriesDetails) => {
      <p className='bg-gray-300/20  text-center py-1 px-2 text-2xl font-bold my-8 rounded-md '>Released on: {release_date||first_air_date}</p>
      <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>HD</p>
      <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>{vote_average}</p>
+    { media_type&& <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>{media_type}</p>}
      
      </div>
      {/* Overview */}

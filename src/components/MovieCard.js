@@ -9,16 +9,18 @@ const MovieCard = (backdrop_path,movieName) => {
   if(!photoMovie) return null
    
   return (
-    <div className="relative m-1 border transform-gpu transition-transform duration-500 hover:scale-110 hover:translate-z-50">
-    <div className="relative w-72 cursor-pointer">
+    <div className="movieCards border border-red-600 relative  m-1">
+    <div className=" relative w-80 cursor-pointer  ">
       <img
-        className="object-cover rounded-sm"
+        className="movieCardsImg object-cover rounded-sm"
         src={IMG_CDN + backdrop_path?.posterPath}
         alt="moviesImg"
       />
-      <h1 className="absolute bottom-2 left-1 text-white font-bold">
-        movieName
-      </h1>
+      {/* <div className='movieInfo'>
+        <h1>title</h1>
+        <p>lorem100wmndkwndknd wdkwndknw   kndkw dmm wkdwqd d dqwd d dkwq dwq dd d qwkdwq dm </p>
+      </div> */}
+    
     </div>
   </div>
   

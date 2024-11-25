@@ -6,9 +6,9 @@ const MovieList = ({title,movies})=> {
     
     
   return (
-     <div className= "border relative overflow-visible perspective-1000">
+     <div className= "movieList border border-yellow-400 ">
         <h1 className="font-bold text-2xl mt-2 mb-0.5 ml-1 text-gray-200">{title}</h1>
-          <div className="  flex overflow-x-scroll no-scrollbar">
+          {/* <div className="  movieList"> */}
         {
                 
             movies?.map((movie)=>(
@@ -17,7 +17,7 @@ const MovieList = ({title,movies})=> {
                    
                 ))
             }
-                </div>
+                {/* </div> */}
            
           
         </div>
