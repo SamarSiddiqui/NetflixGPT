@@ -1,24 +1,33 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../utils/myListSlice'
 
 const BannerDetails = (seriesDetails) => {
 
   let {name,overview,vote_average,first_air_date,original_title,release_date,media_type} = seriesDetails?.details
-  
+  const dispatch = useDispatch()
+  let handleAddItem = () => {  
+   dispatch(addItem(seriesDetails?.details))
+  //  console.log(addItem);
+   
+  }
   return (
     <div className='absolute top-44  left-16 w-1/2  '>
       
      <div className=''>
         {/* Title */}
      <div className='flex items-center' > 
-      <h1 style={{ textShadow: '4px 3px 6px black' }} className='text-white text-6xl font-bold hover:underline cursor-pointer '>{original_title||name} </h1>    
-     <span className='ml-5 text-red-500'><i class="fa-solid fa-play text-5xl"></i></span>
+      <h1 style={{ textShadow: '4px 3px 6px black' }} className='text-white text-6xl font-bold hover:underline cursor-pointer '>{original_title||name}   
+     <i class="ml-5 text-red-500 fa-solid fa-play text-5xl"></i>
+     </h1> 
      </div>
      {/* Released Details */}
      <div className='flex items-center ' >
      <p className='bg-gray-300/20  text-center py-1 px-2 text-2xl font-bold my-8 rounded-md '>Released on: {release_date||first_air_date}</p>
      <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>HD</p>
      <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>{vote_average}</p>
-    { media_type&& <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>{media_type}</p>}
+    { media_type && <p className='text-xl font-extralight text-white border border-gray-400 rounded-md mx-3 py-1 px-2'>{media_type}</p>}
+    <p><i onClick={handleAddItem} className="fa-solid fa-plus bo border border-gray-400 rounded-full p-2.5 cursor-pointer"></i></p>
      
      </div>
      {/* Overview */}

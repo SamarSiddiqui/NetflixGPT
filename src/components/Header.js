@@ -90,7 +90,7 @@ const Header = () => {
           <NavLink to={'/tvSeries'}>Tv Series</NavLink>
         </li>
         <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white">
-        <NavLink to={'/moives'}>Movies</NavLink>
+        <NavLink to={'/movies'}>Movies</NavLink>
         </li>
         <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/trending'}>Trending</NavLink></li>
         <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/myList'}>My List</NavLink></li>

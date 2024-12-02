@@ -3,7 +3,7 @@ import React from 'react'
 const Shimmer = () => {
   return (
     <div className='text-white'>
-      <h1>hello from Shimmer</h1>
+      <div className='w-96 h-96 p-20'>hello from Shimmer</div>
     </div>
   )
 }

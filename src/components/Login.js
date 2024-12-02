@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { checkValidator } from "../utils/formValidation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Netflix_Bg, User_Dp } from "../utils/constants";
 
@@ -14,7 +14,9 @@ const Login = ()=> {
    const email = useRef(null)
    const password = useRef(null)
    const name = useRef(null)
-   
+  
+
+
    const toggleSignUp = ()=> {
        setSigned(!isSigned)
        
@@ -67,18 +69,19 @@ const Login = ()=> {
     setErrorMessage(errorCode+"-"+errorMessage)
   });
 }
-       
+
 }
 
-    let [isPasswordVisible,setPasswordVisible] = useState(false)
-    const handleIconClass = ()=> {
-       setPasswordVisible (prevClass=>!prevClass)
-    }
+let [isPasswordVisible,setPasswordVisible] = useState(false)
+const handleIconClass = ()=> {
+  setPasswordVisible (prevClass=>!prevClass)
+}
     const IconClass = isPasswordVisible?"fa-regular fa-eye-slash":"fa-regular fa-eye"
     const inputType = isPasswordVisible?"text":"password"
-
+ 
 
 return (
+
    <div className="relative">
        <Header/>
 
