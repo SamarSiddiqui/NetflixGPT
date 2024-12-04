@@ -27,13 +27,13 @@ const Browse = () => {
   
   return (
     <div className=''>
-      <Header />
+      
       {
         state? <GptSearch/>:
         <>
         <MainContainer />
         <SecondaryContainer />
-        <Footer/>
+        
         
         </>
       }
