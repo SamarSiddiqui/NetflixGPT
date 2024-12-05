@@ -13,7 +13,7 @@ const MovieList = ({title,movies})=> {
         </div>
     <div className="movielist">
     {  movies?.map((movie)=>(
-     <MovieCard key={movie.id} movies={movies} movieName={movie?.original_title|| movie?.original_name}  posterPath={movie?.backdrop_path} overview={movie?.overview} ratings={movie?.vote_average} movie={movie}/>            
+     <MovieCard key={movie.id} movieId={movie.id} movies={movies} movieName={movie?.original_title|| movie?.original_name}  posterPath={movie?.backdrop_path} overview={movie?.overview} ratings={movie?.vote_average} movie={movie}/>            
     ))}         
         </div>
     </div>

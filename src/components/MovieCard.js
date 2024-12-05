@@ -1,14 +1,19 @@
 import React from 'react'
 import { IMG_CDN } from '../utils/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../utils/myListSlice';
 
-const MovieCard = ({posterPath,movieName,overview,ratings,movie}) => {
+const MovieCard = ({posterPath,movieName,overview,ratings,movie,movieId}) => {
+  const myList = useSelector((store)=>store?.mylist?.addedItems)
+  
   const dispatch = useDispatch()
   if(!posterPath && !movieName) return null
-   
-  let handleAddItem = () => {  
-    dispatch(addItem(movie))
+  
+  const handleAddItem = () => {  
+    const isMovieInList = myList.some((movie)=>movie.id===movieId)
+    if(!isMovieInList){
+      dispatch(addItem(movie))
+    }
     
    }
   

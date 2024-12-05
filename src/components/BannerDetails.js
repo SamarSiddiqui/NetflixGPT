@@ -1,17 +1,19 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../utils/myListSlice'
 
 const BannerDetails = (seriesDetails) => {
-
-  let {name,overview,vote_average,first_air_date,original_title,release_date,media_type} = seriesDetails?.details
+  const myList = useSelector((store)=>store?.mylist?.addedItems)
+  let {name,overview,vote_average,first_air_date,original_title,release_date,media_type,id} = seriesDetails?.details
   const dispatch = useDispatch()
   let ratings = parseFloat(vote_average)
   let result = ratings.toFixed(2)
    
   let handleAddItem = () => {  
+    let isMovieInList = myList.some((movie)=>movie.id===id)
+    if(!isMovieInList){
    dispatch(addItem(seriesDetails?.details))
-   
+   }
   }
   return (
     <div className='absolute top-44  left-20 w-1/2 cursor-default'>

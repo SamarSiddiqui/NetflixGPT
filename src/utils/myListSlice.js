@@ -7,7 +7,11 @@ const myListSlice = createSlice({
     },
     reducers: {
         addItem: (state,action)=> {
-            state.addedItems.push(action.payload)
+            const exists = state.addedItems.some((item)=> item.id === action.payload.id)
+            if(!exists){
+                state.addedItems.push(action.payload)
+
+            }
         },
         clearList: (state)=>{
             state.addedItems.length=0
