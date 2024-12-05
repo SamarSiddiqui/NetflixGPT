@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import lang from '../utils/language'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import axios from 'axios';
 import { API_Options } from '../utils/constants';
 import { gptSearchResults } from '../utils/gptMovieSuggestion';
@@ -9,7 +8,6 @@ import { gptSearchResults } from '../utils/gptMovieSuggestion';
 const GptSearchBar = () => {
   
   const dispatch = useDispatch()
-  const langKey = useSelector((store)=>store.lang.lang)
   
   const inputValue = useRef(null)
   const API_KEY = process.env.REACT_APP_GEMINI_KEY;
@@ -48,14 +46,14 @@ const GptSearchBar = () => {
   return (
     <div className='p-[10%] border '>
         
-        <form className='  bg-black grid grid-cols-12 justify-center items-center' onSubmit={(e)=>e.preventDefault()} >
+        <form className='grid grid-cols-12 justify-center items-center' onSubmit={(e)=>e.preventDefault()} >
         <input
         ref={inputValue}
         type='text'
-        className='col-span-9 p-4 m-4 text-black cols-span-9 rounded-lg'
-        placeholder= {lang[langKey].input}
+        className='italic col-span-9 p-4 m-4 text-black cols-span-9 rounded-lg'
+        placeholder="Type in the vibes, we'll find the flicks!"
         />
-        <button onClick={handleGPTSearchClick}  className='col-span-3 mr-3 py-4 px-4 bg-red-700 text-white rounded-lg'>{lang[langKey].search}</button>
+        <button onClick={handleGPTSearchClick}  className='col-span-3 mr-3 py-4 px-4 bg-red-700 text-white rounded-lg'>Movie Magic</button>
         </form>
       
     </div>

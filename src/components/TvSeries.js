@@ -25,12 +25,15 @@ const TvSeries = () => {
     return <Shimmer/>
   }
   return (
-  <div className='text-white'>
+  <div className='text-white '>
      <Banner details={state}/>
-     <MovieList movies={movies?.nowReleasedTodaySeries}/>
-     <MovieList movies={movies?.nowPopularSeries}/>
-     <MovieList movies={movies?.nowAiringTodaySeries}/>
-     <MovieList movies={movies?.tvSeries}/>
+     <div className='w-[95%] m-auto'>
+
+     <MovieList title={"Trending TV Hits"} movies={movies?.nowPopularSeries}/>
+     <MovieList title={"Just Released Shows"} movies={movies?.nowReleasedTodaySeries}/>
+     <MovieList title={"Critics' Choice Series"} movies={movies?.tvSeries}/>
+     <MovieList title={"Fresh Episodes Dropping"} movies={movies?.nowAiringTodaySeries}/>
+     </div>
 
   </div>
 )

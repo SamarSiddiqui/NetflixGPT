@@ -65,7 +65,6 @@ body{
   
 .movielist{
     position: relative;
-    /* border: 3px solid green; */
     padding: 10px 0;
     display: flex;
     flex-wrap: nowrap;
@@ -83,9 +82,7 @@ body{
     width: 400px;
     height: 250px;
     border-radius: 5px;
-    /* border: 2px solid chartreuse; */
-    /* cursor: pointer; */
-    
+      
 }
 
 .poster-image{
@@ -106,15 +103,13 @@ body{
 }
 
 .details{
-    /* border: 2px solid red; */
     position: absolute;
-    bottom: 10px;
-    /* left: 0; */
+    bottom: 22px;
 
 }
 .description{
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -139,3 +134,5 @@ body{
 .details .icons span:hover{
     transform: translateY(-2px);
 }
+
+

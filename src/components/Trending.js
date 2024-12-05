@@ -22,13 +22,14 @@ const Trending = () => {
    }
   return (
     <div>
-        <Header/>
+        
         <Banner details={state}/>
+        <div className='w-[95%] m-auto'>
         {/* ReleasedMovies */}
-        <MovieList movies={movies?.nowReleasedTodayMovies}/>
+        <MovieList title={"Hot Off the Reel"} movies={movies?.nowReleasedTodayMovies}/>
         {/* ReleasedTvSeries */}
-        <MovieList movies={movies?.nowReleasedTodaySeries}/>
-      <h2>hellllo from trending page</h2>
+        <MovieList title={"Freshly Dropped Shows"} movies={movies?.nowReleasedTodaySeries}/>
+        </div>
     </div>
   )
 }

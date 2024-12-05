@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
    
-  const user = useSelector((state)=>state.user)
+  // const user = useSelector((state)=>state.user)
   // console.log(user);
   
   // const [isActive, setIsActive] = useState(true)
@@ -87,7 +87,7 @@ const Footer = () => {
         </a>
         {/* GitHub */}
         <a href='https://github.com/SamarSiddiqui' target='blank' rel='noopener noreferrer'>
-        <i className="fa-brands fa-github text-4xl px-6  hover:scale-110 text-gray-100 cursor-pointer"></i>
+        <i className="fa-brands fa-github text-4xl pl-6  hover:scale-110 text-gray-100 cursor-pointer"></i>
         </a>
         </div>
      </div>

@@ -9,10 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import Body from './components/Body';
 import appStore from './utils/appStore';
-// import ConectionStatus from './hooks/useConnectionStatus';
 import Error from './components/Error'
 import Shimmer from './components/Shimmer'
-// import GptSearch from './components/Shimmer'
 import MyList from './components/MyList'
 const Trending = lazy(()=>import("./components/Trending"))
 const Movies = lazy(()=>import("./components/Movies"))
@@ -26,16 +24,12 @@ const appRouter = createBrowserRouter([
    element: <Body/>,
    children: [ {
          path: "/",
-         element: <Suspense fallback={<Shimmer/>}>
-        <Login/>
-       </Suspense>
+         element: <Login/>
+       
      },
      {
          path:"/browse",
-         element: <Suspense fallback={<Shimmer/>}>
-         <Browse/>
-       </Suspense>
-        
+         element: <Browse/>
      },
      {
        path: "/tvSeries",
@@ -51,7 +45,7 @@ const appRouter = createBrowserRouter([
      },
      {
        path:"/trending",
-       element: <Suspense fallback={<div>loading from lazy..</div>}>
+       element: <Suspense fallback={<Shimmer/>}>
          <Trending/>
        </Suspense>
      },

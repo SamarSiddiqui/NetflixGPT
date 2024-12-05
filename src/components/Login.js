@@ -83,7 +83,6 @@ const handleIconClass = ()=> {
 return (
 
    <div className="relative">
-       <Header/>
 
    <div className="absolute bgLogo">
        <img alt="bg-logo"  src={Netflix_Bg}/>

@@ -25,14 +25,17 @@ const Movies = () => {
   }
   return (
     <div>
-        <Header/>
+        
         <Banner details={state}/>
-        <MovieList movies={movies?.nowReleasedTodayMovies}/>
-        <MovieList movies={movies?.nowUpcomingMovies}/>
-        <MovieList movies={movies?.topRatedMovies}/>
-        <MovieList movies={movies?.nowPopularMovies}/>
-        <Footer/>
-      <h2>Hello from Movies Section</h2>
+        <div className=' w-[95%] m-auto'>
+
+        <MovieList title={"Fresh Off the Reel"} movies={movies?.nowReleasedTodayMovies}/>
+        <MovieList title={"Movies on the Horizon"} movies={movies?.nowUpcomingMovies}/>
+        <MovieList title={"Critics' Favorites"} movies={movies?.topRatedMovies}/>
+        <MovieList title={"Box Office Buzz"} movies={movies?.nowPopularMovies}/>
+        </div>
+        
+      
     </div>
   )
 }

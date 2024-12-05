@@ -1,11 +1,6 @@
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect, useState } from "react";
 import { Netflix_Logo, Supported_Lang } from "../utils/constants";
-import { toggleGptComponent } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configlangSlice";
 import DropDown from "./DropDown";
 import { NavLink } from "react-router-dom";
@@ -19,39 +14,8 @@ const Header = () => {
   const showLangOptions = useSelector((store)=>store?.gpt?.toggleGpt)
   
   const dispatch = useDispatch()
-  const navigate = useNavigate()
    
-  useEffect(()=>{
-    // This function is checking authentication kindOff EventListner. If a user is signed in then the store is getting updated.
-   const unsbscribe =  onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in,
-        const {uid,email,displayName,photoURL} = user;
-        dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-        // ...
-        // navigate('/browse')
-        if (window.location.pathname === '/') {
-          navigate('/browse'); // Only redirect if on root path
-      }
-      } else {
-        // User is signed out
-        dispatch(removeUser())
-        navigate('/')
-        
-      }
-    });
-    //Unsubscribe when the component unmounts
-    return ()=> unsbscribe()
-  
-  },[])
 
-
- // const dispatch = useDispatch()
-
-
- let handleGptToggle = ()=> {
-  dispatch(toggleGptComponent())
- }
 
  let handleLangchange = (e)=> {
  dispatch(changeLanguage(e.target.value))
@@ -80,22 +44,22 @@ const Header = () => {
     
     <div className={` flex justify-between fixed top-0 z-[999] bg-gradient-to-b from-black w-full transition-all ease-in-out duration-700 ${scrolled?"bg-black":"bg-black opacity-70"}` }>
      
-    <div className=" flex text-white ">
+    <div className=" flex ">
     <img className="w-36 ml-10 "   alt="logo"  src={Netflix_Logo}/>
-       <ul className="flex items-center">
-        <li className="pl-5 px-4 font-light text-sm cursor-pointer text-gray-300 ">
+       <ul className="flex items-center text-gray-500  text-sm  ">
+        <li className="pl-5 px-4 font-light cursor-pointer">
         <NavLink to={'/browse'} >Home</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white">
+        <li className="pl-5 px-4  font-light cursor-pointer hover:text-white">
           <NavLink to={'/tvSeries'}>Tv Series</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white">
+        <li className="pl-5 px-4 font-light cursor-pointer hover:text-white">
         <NavLink to={'/movies'}>Movies</NavLink>
         </li>
-        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/trending'}>Trending</NavLink></li>
-        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/myList'}>My List</NavLink></li>
+        <li className="pl-5 px-4 font-light cursor-pointer hover:text-white"><NavLink to={'/trending'}>Trending</NavLink></li>
+        <li className="pl-5 px-4 font-light cursor-pointer hover:text-white"><NavLink to={'/myList'}>My List</NavLink></li>
        
-        <li className="pl-5 px-4 text-gray-500 font-light text-sm cursor-pointer hover:text-white"><NavLink to={'/gptsearch'}>Gpt Search<i className="fa-solid fa-wand-magic-sparkles pl-2"></i></NavLink></li>
+        <li className="pl-5 px-4 font-light cursor-pointer hover:text-white"><NavLink to={'/gptsearch'}>Gpt Search<i className="fa-solid fa-wand-magic-sparkles pl-2"></i></NavLink></li>
        </ul>
       </div>
       
