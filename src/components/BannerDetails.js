@@ -9,12 +9,14 @@ const BannerDetails = (seriesDetails) => {
   let ratings = parseFloat(vote_average)
   let result = ratings.toFixed(2)
    
+  //Movie Duplicacy Logic
   let handleAddItem = () => {  
     let isMovieInList = myList.some((movie)=>movie.id===id)
     if(!isMovieInList){
    dispatch(addItem(seriesDetails?.details))
    }
   }
+  
   return (
     <div className='absolute top-44  left-20 w-1/2 cursor-default'>
       

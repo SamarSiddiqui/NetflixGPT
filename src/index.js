@@ -1,6 +1,6 @@
 import  { lazy, Suspense } from 'react'
 import Login from './components/Login'
-import Browse from './components/Browse'
+// import Browse from './components/Browse'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -16,6 +16,7 @@ const Trending = lazy(()=>import("./components/Trending"))
 const Movies = lazy(()=>import("./components/Movies"))
 const TvSeries = lazy(()=>import("./components/TvSeries"))
 const GptSearch = lazy(()=>import("./components/GptSearch"))
+const Browse = lazy(()=>import("./components/Browse"))
 
 const appRouter = createBrowserRouter([
         
@@ -29,7 +30,7 @@ const appRouter = createBrowserRouter([
      },
      {
          path:"/browse",
-         element: <Browse/>
+         element: <Suspense fallback={<Suspense/>}><Browse/></Suspense>
      },
      {
        path: "/tvSeries",

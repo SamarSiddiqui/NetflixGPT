@@ -9,6 +9,7 @@ const MovieCard = ({posterPath,movieName,overview,ratings,movie,movieId}) => {
   const dispatch = useDispatch()
   if(!posterPath && !movieName) return null
   
+  //Movie Duplicacy Logic
   const handleAddItem = () => {  
     const isMovieInList = myList.some((movie)=>movie.id===movieId)
     if(!isMovieInList){

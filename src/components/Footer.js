@@ -17,13 +17,13 @@ const Footer = () => {
  
   return (
     <footer className='bg-black text-white opacity-90'>
-     <div className=' w-[97%] m-auto  py-10'>
+     <div className=' w-[94%] m-auto border py-10'>
 
       {/*topFooter */}
-      <div className='flex justify-around py-10   '>
-        <div>
+      <div className='flex justify-between border py-10   '>
+        <div className='border w-[50%]'>
           <h1 className=' text-lg font-bold'>About</h1>
-          <p className='mt-3 font-light text-gray-300 w-1/2'>loremdkdkmwdmwmwmmwdw  wkwihsoqdo wndjwnin kwnddineijbfue ndied9e i i2dihd  2wdn2nddwjd e ibejdejn ijj djibdd d djdbu8ooosid  wdnj</p>
+          <p className='mt-3 font-light text-gray-300 w-1/2'>Welcome to Netflix-GPT, where AI meets entertainment! With GPT-powered recommendations, we turn your movie searches into tailored cinematic adventures. Discover films that match your mood, and let technology guide your next binge-worthy story. Your perfect watchlist starts here.</p>
         </div>
         <div className=''>
           <h2 className='whitespace-nowrap font-semibold pr-10'>Free Netflix</h2>
@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       {/*belowFooter */}
-      <div className='border-t-[1px] border-gray-500 w-[94%] m-auto flex justify-between pb-16 pt-5'>
+      <div className='border-t-[1px] border border-gray-500 w-[94%] m-auto flex justify-between pb-16 pt-5'>
         <div className=''>
           <h2>Copyright @ Samar 2024 All Rights Reserved</h2>
         </div>

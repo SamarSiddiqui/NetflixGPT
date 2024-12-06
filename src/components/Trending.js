@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import useReleasedTodayMovies from '../hooks/useReleasedTodayMovies'
 import useReleasedTodaySeries from '../seriesHooks/useReleasedToday'
 import MovieList from './MovieList'
+import Shimmer from './Shimmer'
 
 const Trending = () => {
     useAllTrending()
@@ -18,7 +19,7 @@ const Trending = () => {
     // const movies = useSelector((store)=>store.movies)
    if (!state || state.length === 0) {
      // Show a loading spinner or placeholder while data is loading
-     return <div className="text-white">Loading...</div>;
+     return <Shimmer/>
    }
   return (
     <div>

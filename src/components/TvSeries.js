@@ -21,7 +21,7 @@ const TvSeries = () => {
   // TopRated 
   const state = useSelector((store)=>store.movies?.tvSeries)
   if (!state || state.length === 0) {
-    // Show a loading spinner or placeholder while data is loading
+    
     return <Shimmer/>
   }
   return (
