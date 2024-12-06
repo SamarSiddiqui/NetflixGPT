@@ -1,9 +1,8 @@
-import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidator } from "../utils/formValidation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Netflix_Bg, User_Dp } from "../utils/constants";
 

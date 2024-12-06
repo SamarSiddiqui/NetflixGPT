@@ -1,6 +1,5 @@
 import React from 'react'
 import Banner from './Banner'
-import { nowUpcomingMovies, topRatedMovies } from '../utils/movieSlice'
 import useUpcomingMovies from '../hooks/useUpcomingMovies'
 import { useSelector } from 'react-redux'
 import usePopularMovies from '../hooks/usePopularMovies'

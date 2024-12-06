@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import Banner from './Banner'
 import useAllTrending from '../hooks/useAllTrending'
 import { useSelector } from 'react-redux'

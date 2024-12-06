@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
 import { API_Options } from '../utils/constants';
 import { gptSearchResults } from '../utils/gptMovieSuggestion';
-import Shimmer from './Shimmer';
 
 
 const GptSearchBar = () => {
@@ -13,7 +12,7 @@ const GptSearchBar = () => {
   const inputValue = useRef(null)
   const API_KEY = process.env.REACT_APP_GEMINI_KEY;
   
-  let movieNames = useSelector((store)=>store.gptMovies?.gptMoviesResults)
+  // let movieNames = useSelector((store)=>store.gptMovies?.gptMoviesResults)
   
   //SearchMOvie in TMDB
     const searchMovieTmdb = async(movie)=>{
