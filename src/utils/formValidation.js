@@ -8,3 +8,4 @@ export const checkValidator = (email,password)=> {
     return null
     
 }
+
