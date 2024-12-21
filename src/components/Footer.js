@@ -1,98 +1,93 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-   
-  // const user = useSelector((state)=>state.user)
-  // console.log(user);
-  
-  // const [isActive, setIsActive] = useState(true)
-  // if(user===null){
-  //   setIsActive(false)
-  //   console.log(isActive);
-  // } else{
-  //   setIsActive(true)
-  // }
- 
   return (
     <footer className='bg-black text-white opacity-90'>
-     <div className=' w-[94%] m-auto border py-10'>
-
-      {/*topFooter */}
-      <div className='flex justify-between border py-10   '>
-        <div className='border w-[50%]'>
-          <h1 className=' text-lg font-bold'>About</h1>
-          <p className='mt-3 font-light text-gray-300 w-1/2'>Welcome to Netflix-GPT, where AI meets entertainment! With GPT-powered recommendations, we turn your movie searches into tailored cinematic adventures. Discover films that match your mood, and let technology guide your next binge-worthy story. Your perfect watchlist starts here.</p>
-        </div>
-        <div className=''>
-          <h2 className='whitespace-nowrap font-semibold pr-10'>Free Netflix</h2>
-          <ul className=''>
-            <Link  to={'/browse'} onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}>            
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Home</li>
-            </Link>
-
-            <Link to={'/movies'} onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Movies</li>
-            </Link>
-
-            <Link to={'/tvSeries'} onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}>            
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Web Series</li>
-            </Link>
-
-            <Link to={'/myList'} onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>For You</li>
-            
-            </Link>
-          </ul>
-        </div>
-        <div className=' '>
-          <h2  className=' whitespace-nowrap font-semibold'>Contact Us</h2>
-          <ul className=''>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
-              <a href='https://www.linkedin.com/in/samar-siddiqui-763481236/' target='blank' rel='noopener noreferrer'>
-              LinkedIn
-              </a>
-              </li>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
-            <a href='mailto:samar.r.siddiqui@gmail.com'>
-              Email
-              </a>
-            </li>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
-            <a href='https://github.com/SamarSiddiqui' target='blank' rel='noopener noreferrer'>
-            Github
-              </a>
-            </li>
-            <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Instagram</li>
-          </ul>
-        </div>
-      </div>
-
-      {/*belowFooter */}
-      <div className='border-t-[1px] border border-gray-500 w-[94%] m-auto flex justify-between pb-16 pt-5'>
-        <div className=''>
-          <h2>Copyright @ Samar 2024 All Rights Reserved</h2>
-        </div>
+      <div className='w-[85%] m-auto py-10'>
         
-        <div>
-        {/* InstaGram */}
-        <i className="fa-brands fa-instagram text-4xl px-6  hover:scale-110 text-gray-100 cursor-pointer"></i>
+        {/* Top Footer Section */}
+        <div className='grid grid-cols-[78%,22%] gap-2 py-10 laptop:grid-cols-[65%,35%] smallerTab:block'>
+          <div className='smallerTab:text-center'>
+            <h1 className='text-2xl font-bold'>About</h1>
+            <p className='mt-3 font-light text-gray-200 w-[70%] smallerTab:w-full smallerTab:mb-10'>
+              Welcome to Netflix-GPT, where AI meets entertainment! With GPT-powered recommendations, we turn your movie searches into tailored cinematic adventures. Discover films that match your mood, and let technology guide your next binge-worthy story. Your perfect watchlist starts here.
+            </p>
+          </div>
 
-        {/* Twitter */}
-        <i className="fa-brands fa-x-twitter text-4xl px-6 hover:scale-110 text-gray-100 cursor-pointer"></i>
-          {/* LinkedIn */}
-        <a href='https://www.linkedin.com/in/samar-siddiqui-763481236/' target='blank' rel='noopener noreferrer'>        
-        <i className="fa-brands fa-linkedin text-4xl px-6 hover:scale-110 text-gray-100 cursor-pointer"></i>
-        </a>
-        {/* GitHub */}
-        <a href='https://github.com/SamarSiddiqui' target='blank' rel='noopener noreferrer'>
-        <i className="fa-brands fa-github text-4xl pl-6  hover:scale-110 text-gray-100 cursor-pointer"></i>
-        </a>
+          {/* Links Section */}
+          <div className='flex justify-around w-full'>
+            {/* Free Netflix Section */}
+            <div>
+              <h2 className='whitespace-nowrap font-semibold'>Free Netflix</h2>
+              <ul>
+                <Link to='/browse' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Home</li>
+                </Link>
+                <Link to='/movies' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Movies</li>
+                </Link>
+                <Link to='/tvSeries' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>Web Series</li>
+                </Link>
+                <Link to='/myList' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>For You</li>
+                </Link>
+              </ul>
+            </div>
+
+            {/* Contact Us Section */}
+            <div>
+              <h2 className='whitespace-nowrap font-semibold'>Contact Us</h2>
+              <ul>
+                <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
+                  <a href='https://www.linkedin.com/in/samar-siddiqui-763481236/' target='_blank' rel='noopener noreferrer'>
+                    LinkedIn
+                  </a>
+                </li>
+                <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
+                  <a href='mailto:samar.r.siddiqui@gmail.com'>Email</a>
+                </li>
+                <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
+                  <a href='https://github.com/SamarSiddiqui' target='_blank' rel='noopener noreferrer'>
+                    GitHub
+                  </a>
+                </li>
+                <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'>
+                  <a href='https://www.instagram.com/samsid__?igsh=MTgxMHpoY3prZzNkMQ==' rel='noreferrer' target='_blank'>
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-     </div>
+
+        {/* Bottom Footer Section */}
+        <div className='border-t-[1px] border-gray-500 grid grid-cols-[70%,30%] pt-5 smallerTab:block smallerTab:text-center smallerTab:pb-0 mb-10'>
+          <div className='flex items-center smallerTab:block'>
+            <h2>Copyright @ Samar 2024 All Rights Reserved</h2>
+          </div>
+
+          {/* Social Media Icons */}
+          <div className='flex justify-end items-center text-[clamp(28px,5vw,35px)] smallerTab:mt-5 smallerTab:justify-center'>
+            <a href='https://www.instagram.com/samsid__?igsh=MTgxMHpoY3prZzNkMQ==' target='_blank' rel='noopener noreferrer'>
+              <i className='fa-brands fa-instagram px-6 hover:scale-110 text-gray-100 cursor-pointer'></i>
+            </a>
+            <a href='https://x.com/samsid__?t=td35lKcr2eFGflbmhChFHw&s=09' target='_blank' rel='noopener noreferrer'>
+              <i className='fa-brands fa-x-twitter px-6 hover:scale-110 text-gray-100 cursor-pointer'></i>
+            </a>
+            <a href='https://www.linkedin.com/in/samar-siddiqui-763481236/' target='_blank' rel='noopener noreferrer'>
+              <i className='fa-brands fa-linkedin px-6 hover:scale-110 text-gray-100 cursor-pointer'></i>
+            </a>
+            <a href='https://github.com/SamarSiddiqui' target='_blank' rel='noopener noreferrer'>
+              <i className='fa-brands fa-github pl-6 hover:scale-110 text-gray-100 cursor-pointer'></i>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

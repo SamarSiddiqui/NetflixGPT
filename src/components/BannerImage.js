@@ -1,27 +1,17 @@
-import React from 'react'
+import React from 'react';
 import { IMG_CDN } from '../utils/constants';
 
-const BannerImage = (backdrop_path) => {
-  
- 
-    
+const BannerImage = ({ details: backdropPath }) => {
   return (
-    <div className='relative w-screen'>
-      
-    <div className=" ">
-    <div className='absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent'></div>
-      <img  
-        className=" w-screen  object-cover"
-        src={IMG_CDN + backdrop_path.details}
-        alt="moviesImg"
-          
+    <div className="relative w-screen">
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+      <img
+        className="w-screen h-[110vh] largerMobile:h-[100vh] object-cover"
+        src={IMG_CDN + backdropPath}
+        alt="Movie Banner"
       />
-      
     </div>
-      
-      
-    </div>
-  )
-}
+  );
+};
 
-export default BannerImage
+export default BannerImage;

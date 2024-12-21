@@ -5,17 +5,15 @@ const GptMoviePage = () => {
 
   let movieNames = useSelector((store)=>store.gptMovies?.gptMoviesResults?.movieNames)
   let movieDetails = useSelector((store)=>store.gptMovies?.gptMoviesResults?.movieResults)
-  // let {movieName} = movieNames
-  // if(!movieNames) return <Shimmer/>
+ 
   if(!movieDetails) return null
-  console.log(movieDetails);
   
   return (
-    <div className='text-white  bg-black border-red-800 bg-opacity-5  0'>
+    <div className='text-white  bg-transparent  bg-opacity-50  w-[95%] m-auto '>
      {
       movieNames.map((name,index)=> 
       <MovieList 
-      key={name}       
+      key={name || index}       
       movies={movieDetails[index]}/>)
      }
     

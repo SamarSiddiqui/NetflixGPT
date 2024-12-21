@@ -11,7 +11,6 @@ const ConectionStatus = ({chidren})=> {
     window.addEventListener('online',handleOnline)
     window.addEventListener('offline',handleOffline)
  },[])
- console.log(`Is Online ${isOnline}`);
  
 return isOnline? chidren: <NoInternet/> 
 }
