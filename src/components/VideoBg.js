@@ -17,11 +17,11 @@ const VideoBg = ({ movieID }) => {
   return (
     <div className="relative   w-screen h-screen overflow-hidden">
       <iframe
-        className="absolute inset-0 w-full h-full  scale-[2] largerMobile:scale-[4.6]"
+        className="absolute inset-0 w-full h-full  scale-[3] largerMobile:scale-[4.6]"
         src={
           "https://www.youtube.com/embed/" +
           trailerKey +
-          "?&mute=1&controls=0&start=10&rel=0"
+          "?&mute=1&controls=0&start=10&rel=0&vq=hd720p"
           // autoplay=1
         }
         title="YouTube video player"

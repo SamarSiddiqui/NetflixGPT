@@ -33,7 +33,6 @@
 - Made lots of custom hooks for fetching film categories
 - Gpt Search Page
 - Gpt Search Bar
-- Added A Multi-lingal feature in our App.
 - 
 
 

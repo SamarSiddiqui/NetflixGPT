@@ -41,6 +41,7 @@ const HamburgerMenu = () => {
             <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'><NavLink onClick={toggleMenu} to={'/movies'} >Movies </NavLink></li>    
 			<li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'> <NavLink onClick={toggleMenu} to={'/tvSeries'}> Web Series </NavLink></li>
 		    <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'><NavLink onClick={toggleMenu} to={'/myList'} >For You  </NavLink></li>
+		    <li className='text-gray-400 cursor-pointer hover:text-gray-200 pt-1'><NavLink onClick={toggleMenu} to={'/gptsearch'}>Gpt-Search</NavLink></li>
      		<li onClick={handleSignOut}>Sign Out</li>
 
         <div className='flex justify-center items-center text-[clamp(20px,5vw,35px)] smallerTab:mt-5'>

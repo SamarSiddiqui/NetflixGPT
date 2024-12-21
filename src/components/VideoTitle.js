@@ -4,7 +4,7 @@ const VideoTitle = ({ props }) => {
   let { original_title, overview, release_date, first_air_date, name } = props;
 
   return (
-    <div className=" w-full h-screen aspect-video pt-[27%] top-0 z-10  px-20 absolute text-white bg-gradient-to-t from-black cursor-default ">
+    <div className=" w-full h-[101vh] aspect-video pt-[27%] top-0 z-10  px-20 absolute text-white bg-gradient-to-t from-black cursor-default ">
       <div className=" absolute top-44 left-20  smallerTab:left-8 largerMobile:top-28 ">
         <div className="flex items-center text-[clamp(30px,5vw,50px)] ">
           <h1

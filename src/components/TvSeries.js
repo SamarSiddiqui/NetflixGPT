@@ -21,7 +21,7 @@ const TvSeries = () => {
     nowReleasedTodaySeries,
     nowAiringTodaySeries} = useSelector((store) => store.movies);
   // TopRated
-  if (!tvSeries || tvSeries.length === 0 || !nowPopularSeries || nowPopularSeries.length) {
+  if (!tvSeries || tvSeries.length === 0) {
     return <Shimmer />;
   }
   return (
