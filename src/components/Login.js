@@ -96,7 +96,7 @@ const Login = () => {
   const inputType = isPasswordVisible ? "text" : "password";
 
   return (
-    <div className="relative flex items-center bg-black">
+    <div className="relative flex items-center bg-black ">
       {/*Background */}
       <img
         alt="background"
@@ -106,7 +106,7 @@ const Login = () => {
 
       {/* Login Form */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center   ">
-        <div className="tablet:w-screen tablet:h-[100vh] tablet:bg-black/100 p-10 w-96   bg-black/85">
+        <div className="tablet:w-screen tablet:h-[100vh] tablet:bg-black/100 p-10 w-96   bg-black/85 tablet:flex tablet:flex-col tablet:justify-center">
           <h1 className="text-white text-3xl font-bold my-2 ">
             {isSigned ? "Sign In" : "Sign Up"}
           </h1>

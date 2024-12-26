@@ -54,7 +54,7 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="min-h-[90vh] flex flex-col w-[90%] m-auto justify-center">
+    <div className="min-h-[70vh] flex flex-col w-[90%] m-auto justify-center">
       <div>
         <form
           className="text-center relative grid grid-cols-10 justify-center items-center smallerTab:block"

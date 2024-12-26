@@ -29,7 +29,7 @@ const BannerDetails = ({ details }) => {
   };
 
   return (
-    <div className="absolute mb-10 top-44 left-20 w-1/2 cursor-default smallerTab:left-10 largerMobile:top-32">
+    <div className="absolute border-4 mb-10 top-44 left-20 w-1/2 cursor-default smallerTab:left-5 largerMobile:top-56">
       <div className="text-white smallerTab:w-[80vw]">
         {/* Title */}
         <div className="flex items-center text-[clamp(30px,5vw,50px)]">
