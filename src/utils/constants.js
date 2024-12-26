@@ -16,10 +16,6 @@ export const API_Options = {
   },
 };
 
-export const Supported_Lang = [
-  { identifier: "en", name: "English" },
-  { identifier: "hindi", name: "Hindi" },
-  { identifier: "urdu", name: "Urdu" },
-];
+
 
 export const Gemini_Key = process.env.REACT_APP_GEMINI_KEY;
