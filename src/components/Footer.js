@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Bottom Footer Section */}
         <div className='border-t-[1px] border-gray-500 grid grid-cols-[70%,30%] pt-5 smallerTab:block smallerTab:text-center smallerTab:pb-0 mb-10'>
           <div className='flex items-center smallerTab:block'>
-            <h2>Copyright @ Samar 2024 All Rights Reserved</h2>
+            <h2>Copyright @ Samar 2025 All Rights Reserved</h2>
           </div>
 
           {/* Social Media Icons */}
