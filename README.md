@@ -15,4 +15,18 @@ Netflix GPT is a React-based web application that combines a Netflix-inspired us
 - **Dynamic Pages:** Individual pages for Movies, Web Series, Trending, and My List.
 - **My List:** Personalized list for users to save their favorites.
 - **Error Handling:** Custom error page for unmatched routes.
-- **Simmer Effect:** Improved user experience with loading indicators during API calls.
+- **SHimmer Effect:** Improved user experience with loading indicators during API calls.
+
+## 🛠️ Tech Stack & Tools
+
+- **Frontend:** React.js
+- **State Management:** Redux, Redux Toolkit
+- **Styling:** Tailwind CSS
+- **APIs:** TMDB API, OpenAI GPT API
+- **Authentication & Hosting:** Firebase
+- **Testing:** Jest
+- **Routing:** React Router
+- **HTTP Requests:** Axios
+- **Bundler:** Webpack
+
+  
