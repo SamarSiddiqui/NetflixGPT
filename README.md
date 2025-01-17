@@ -29,7 +29,7 @@ Netflix GPT is a React-based web application that combines a Netflix-inspired us
 - **HTTP Requests:** Axios
 - **Bundler:** Webpack
 
-
+## 📁 Project Structure
 ```
 netflix-gpt/
 ├── src/
