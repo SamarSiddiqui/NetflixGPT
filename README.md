@@ -29,4 +29,14 @@ Netflix GPT is a React-based web application that combines a Netflix-inspired us
 - **HTTP Requests:** Axios
 - **Bundler:** Webpack
 
-  
+
+```
+netflix-gpt/
+├── src/
+│   ├── components/      # Reusable components (e.g., pages, buttons, lists, cards)
+│   ├── constants/       # Application constants
+│   ├── hooks/           # Custom React hooks
+│   ├── utils/           # Redux slices and Firebase utilities
+├── .env                 # Secret API keys
+├── package.json         # Dependencies and scripts
+```  
